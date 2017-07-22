@@ -1,12 +1,24 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
 
-const initialState = [
+import URLSearchParams from 'url-search-params';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
+import todosMockData from "./todosMockData"
+
+let initialState = [
   {
     text: 'Use Redux',
     completed: false,
     id: 0
   }
 ]
+
+if (typeof window != 'undefined') {
+  let urlSearchParams = new URLSearchParams(window.location.search);
+  let mockDataKey = urlSearchParams.get("mockDataKey");
+  if (mockDataKey) {
+    initialState = todosMockData[mockDataKey]
+    console.debug("override initialState with", mockDataKey, initialState)
+  }
+}
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
