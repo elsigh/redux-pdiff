@@ -10,7 +10,37 @@ export default {
         {
             text: 'Prepare for talk',
             completed: true,
-            id: 0
+            id: 3
+        },
+        {
+            text: 'Modify travis.yaml so Percy.io works',
+            completed: true,
+            id: 4
+        },
+        {
+            text: 'Realize that `filter` is state not props based 🙃',
+            completed: false,
+            id: 5
+        },
+        {
+            text: 'Notice that rows are in array, not ID order',
+            completed: true,
+            id: 6
+        },
+        {
+            text: 'Notice that rows are in array, not ID order',
+            completed: true,
+            id: 6
+        },
+        {
+            text: 'Rows with same `id` render once (first wins)',
+            completed: true,
+            id: 7
+        },
+        {
+            text: 'Rows with same `id` render once',
+            completed: false,
+            id: 7
         },
         {
             text: 'Give talk',
@@ -18,7 +48,7 @@ export default {
             id: 1
         },
         {
-            text: 'Put toddler to sleep',
+            text: 'Put toddler to sleep (not completeable)',
             completed: false,
             id: 2
         },
