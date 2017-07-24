@@ -22,7 +22,6 @@ export default class MainSection extends Component {
   }
 
   handleShow = filter => {
-    console.debug("handleShow", filter)
     this.props.actions.setFilter(filter)
   }
 
@@ -54,8 +53,7 @@ export default class MainSection extends Component {
   }
 
   render() {
-    const { todos, actions, filter } = this.props
-    console.debug("filter", filter)
+    const { todos, actions, filter } = this.props 
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
     const completedCount = todos.reduce((count, todo) =>

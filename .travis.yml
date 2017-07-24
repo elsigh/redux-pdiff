@@ -1,3 +1,6 @@
+language: node_js
+node_js:
+  - 6
 cache:
   directories:
     - node_modules
@@ -10,7 +13,9 @@ install:
     - bundle install
     - npm install
 before_script:
-    - npm start &
-    - sleep 5
+    - npm run build
+    - serve -s build
+    
 script:
+    - npm test
     - bundle exec ruby percy_snapshot.rb

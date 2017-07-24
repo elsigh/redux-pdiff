@@ -7,6 +7,7 @@ import { SHOW_ALL, SHOW_COMPLETED } from '../constants/TodoFilters'
 
 const setup = propOverrides => {
   const props = Object.assign({
+    filter: SHOW_ALL,
     todos: [
       {
         text: 'Use Redux',
@@ -23,7 +24,8 @@ const setup = propOverrides => {
       deleteTodo: jest.fn(),
       completeTodo: jest.fn(),
       completeAll: jest.fn(),
-      clearCompleted: jest.fn()
+      clearCompleted: jest.fn(),
+      setFilter: jest.fn(),
     }
   }, propOverrides)
 
@@ -86,15 +88,6 @@ describe('components', () => {
         expect(footer.props.filter).toBe(SHOW_ALL)
       })
 
-      it('onShow should set the filter', () => {
-        const { output, renderer } = setup()
-        const [ , , footer ] = output.props.children
-        footer.props.onShow(SHOW_COMPLETED)
-        const updated = renderer.getRenderOutput()
-        const [ , , updatedFooter ] = updated.props.children
-        expect(updatedFooter.props.filter).toBe(SHOW_COMPLETED)
-      })
-
       it('onClearCompleted should call clearCompleted', () => {
         const { output, props } = setup()
         const [ , , footer ] = output.props.children
@@ -116,9 +109,10 @@ describe('components', () => {
       })
 
       it('should filter items', () => {
-        const { output, renderer, props } = setup()
+        const { output, renderer, props } = setup({filter: SHOW_COMPLETED})
         const [ , , footer ] = output.props.children
         footer.props.onShow(SHOW_COMPLETED)
+        expect(props.actions.setFilter).toBeCalled()
         const updated = renderer.getRenderOutput()
         const [ , updatedList ] = updated.props.children
         expect(updatedList.props.children.length).toBe(1)

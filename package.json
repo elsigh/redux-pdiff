@@ -6,6 +6,7 @@
     "enzyme": "^2.8.2",
     "react-addons-test-utils": "^15.5.1",
     "react-scripts": "^1.0.2",
+    "serve": "^6.0.3",
     "url-search-params": "^0.7.0"
   },
   "dependencies": {
