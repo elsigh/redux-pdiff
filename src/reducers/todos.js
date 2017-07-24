@@ -11,7 +11,7 @@ let initialState = [
   }
 ]
 
-if (typeof window != 'undefined') {
+if (typeof window !== 'undefined') {
   let urlSearchParams = new URLSearchParams(window.location.search);
   let mockDataKey = urlSearchParams.get("mockDataKey");
   if (mockDataKey) {
