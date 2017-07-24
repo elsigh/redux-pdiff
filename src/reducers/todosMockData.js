@@ -28,18 +28,8 @@ export default {
             id: 6
         },
         {
-            text: 'Notice that rows are in array, not ID order',
-            completed: true,
-            id: 6
-        },
-        {
             text: 'Rows with same `id` render once (first wins)',
             completed: true,
-            id: 7
-        },
-        {
-            text: 'Rows with same `id` render once',
-            completed: false,
             id: 7
         },
         {
