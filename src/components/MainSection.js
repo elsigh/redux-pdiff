@@ -12,18 +12,18 @@ const TODO_FILTERS = {
 
 export default class MainSection extends Component {
   static propTypes = {
+    filter: PropTypes.string.isRequired,
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
   }
-
-  state = { filter: SHOW_ALL }
 
   handleClearCompleted = () => {
     this.props.actions.clearCompleted()
   }
 
   handleShow = filter => {
-    this.setState({ filter })
+    console.debug("handleShow", filter)
+    this.props.actions.setFilter(filter)
   }
 
   renderToggleAll(completedCount) {
@@ -39,8 +39,7 @@ export default class MainSection extends Component {
   }
 
   renderFooter(completedCount) {
-    const { todos } = this.props
-    const { filter } = this.state
+    const { todos, filter } = this.props
     const activeCount = todos.length - completedCount
 
     if (todos.length) {
@@ -55,8 +54,8 @@ export default class MainSection extends Component {
   }
 
   render() {
-    const { todos, actions } = this.props
-    const { filter } = this.state
+    const { todos, actions, filter } = this.props
+    console.debug("filter", filter)
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
     const completedCount = todos.reduce((count, todo) =>

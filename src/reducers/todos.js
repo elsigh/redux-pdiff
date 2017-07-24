@@ -13,10 +13,10 @@ let initialState = [
 
 if (typeof window !== 'undefined') {
   let urlSearchParams = new URLSearchParams(window.location.search);
-  let mockDataKey = urlSearchParams.get("mockDataKey");
+  let mockDataKey = urlSearchParams.get("todosMockData");
   if (mockDataKey) {
     initialState = todosMockData[mockDataKey]
-    console.debug("override initialState with", mockDataKey, initialState)
+    console.debug("overriding todos initialState with todosMockData", mockDataKey, initialState)
   }
 }
 

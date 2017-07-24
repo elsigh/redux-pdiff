@@ -6,20 +6,22 @@ import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
-const App = ({todos, actions}) => (
+const App = ({todos, actions, filter}) => (
   <div>
     <Header addTodo={actions.addTodo} />
-    <MainSection todos={todos} actions={actions} />
+    <MainSection todos={todos} actions={actions} filter={filter} />
   </div>
 )
 
 App.propTypes = {
+  filter: PropTypes.string.isRequired,
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  filter: state.filter,
+  todos: state.todos,
 })
 
 const mapDispatchToProps = dispatch => ({

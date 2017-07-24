@@ -43,3 +43,12 @@ describe('todo actions', () => {
     })
   })
 })
+
+describe('filter actions', () => {
+  it('setFilter should create SET_FILTER action', () => {
+    expect(actions.setFilter('SHOW_ALL')).toEqual({
+      type: types.SET_FILTER,
+      text: 'SHOW_ALL'
+    })
+  })
+})
