@@ -14,8 +14,7 @@ install:
     - npm install
 before_script:
     - npm run build
-    - serve -s build
-    
+    - serve -s build &
 script:
     - npm test
     - bundle exec ruby percy_snapshot.rb
