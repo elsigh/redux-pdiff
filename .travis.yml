@@ -6,6 +6,6 @@ install:
     - sh -e /etc/init.d/xvfb start
     - bundle install
     - npm install
-before_script: npm start
+before_script: npm start &
 script:
     - bundle exec ruby percy_snapshot.rb
