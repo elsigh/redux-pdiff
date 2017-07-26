@@ -17,6 +17,6 @@ Percy::Capybara::Anywhere.run(server, assets_dir, assets_base_url) do |page|
   Percy::Capybara.snapshot(page, name: 'more + completed')
 
   # TODO: uncomment and commit to show baller feature
-  #page.visit('/?todosMockData=more&filterMockData=show_active')
-  #Percy::Capybara.snapshot(page, name: 'more + active')
+  page.visit('/?todosMockData=more&filterMockData=show_active')
+  Percy::Capybara.snapshot(page, name: 'more + active')
 end
