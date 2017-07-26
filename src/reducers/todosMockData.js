@@ -19,7 +19,7 @@ export default {
         },
         {
             text: 'Realize that `filter` is state not props based 🙃',
-            completed: false,
+            completed: true,
             id: 5
         },
         {
